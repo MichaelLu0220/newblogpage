@@ -1,0 +1,87 @@
+website/                          # 專案根目錄
+├── .git/                         # Git 版本控制資料夾
+├── .next/                        # Next.js 建置快取資料夾
+├── .github/                      # GitHub 相關配置
+├── node_modules/                 # Node.js 依賴套件
+├── deposts/                      # 備用文章資料夾
+│
+├── src/                          # 原始碼主資料夾
+│   ├── app/                      # Next.js 13+ App Router
+│   │   ├── about/                # 關於頁面
+│   │   │   └── page.tsx          # 關於頁面組件
+│   │   │
+│   │   ├── archives/             # 文章歸檔頁面
+│   │   │   ├── page.tsx          # 歸檔頁面路由
+│   │   │   └── ArchiveClient.tsx # 歸檔客戶端組件
+│   │   │
+│   │   ├── blog/                 # 部落格相關頁面
+│   │   │   └── [slug]/           # 動態路由 - 文章頁面
+│   │   │       ├── page.tsx      # 文章頁面路由
+│   │   │       └── BlogClientContent.tsx  # 文章內容客戶端組件
+│   │   │
+│   │   ├── categories/           # 分類頁面
+│   │   │   ├── [category]/       # 動態路由 - 特定分類
+│   │   │   ├── page.tsx          # 分類頁面路由
+│   │   │   └── CategoryClient.tsx # 分類客戶端組件
+│   │   │
+│   │   ├── components/           # App 層級組件
+│   │   │   └── ThemeToggle.tsx   # 主題切換組件
+│   │   │
+│   │   ├── tags/                 # 標籤頁面
+│   │   │   ├── [tag]/            # 動態路由 - 特定標籤
+│   │   │   ├── page.tsx          # 標籤頁面路由
+│   │   │   └── TagClient.tsx     # 標籤客戶端組件
+│   │   │
+│   │   ├── favicon.ico           # 網站圖示
+│   │   ├── globals.css           # 全域 CSS 樣式
+│   │   ├── layout.tsx            # 根布局組件
+│   │   └── page.tsx              # 首頁路由
+│   │
+│   ├── components/               # 共用組件資料夾
+│   │   ├── ClientHomePage.tsx    # 首頁客戶端組件
+│   │   ├── CommentSection.tsx    # 評論區組件
+│   │   ├── HeroBanner.tsx        # 英雄橫幅組件
+│   │   ├── HomeNavBar.tsx        # 首頁導航欄組件
+│   │   ├── NavBar.tsx            # 通用導航欄組件
+│   │   └── ThemeToggle.tsx       # 主題切換組件
+│   │
+│   ├── lib/                      # 工具函式庫
+│   │   └── posts.ts              # 文章處理相關函式
+│   │
+│   └── utils/                    # 工具函式
+│       └── languageDetector.ts   # 語言檢測工具
+│
+├── posts/                        # MDX 文章資料夾
+│   └── Introduce.mdx             # 介紹文章
+│
+├── public/                       # 靜態資源資料夾
+│   ├── images/                   # 圖片資源
+│   │   ├── background0.jpg       # 背景圖片 0
+│   │   ├── background1.jpg       # 背景圖片 1
+│   │   ├── background2.jpg       # 背景圖片 2
+│   │   ├── background3.jpg       # 背景圖片 3
+│   │   ├── background4.jpg       # 背景圖片 4
+│   │   ├── background5.jpg       # 背景圖片 5
+│   │   ├── background6.jpg       # 背景圖片 6
+│   │   ├── background7.jpg       # 背景圖片 7
+│   │   ├── cat.jpg               # 貓咪圖片
+│   │   └── giphy.gif             # GIF 動圖
+│   │
+│   ├── file.svg                  # 檔案圖示
+│   ├── globe.svg                 # 地球圖示
+│   ├── next.svg                  # Next.js 圖示
+│   ├── vercel.svg                # Vercel 圖示
+│   └── window.svg                # 視窗圖示
+│
+├── .gitignore                    # Git 忽略檔案配置
+├── eslint.config.mjs             # ESLint 配置
+├── next-env.d.ts                 # Next.js TypeScript 環境定義
+├── next.config.ts                # Next.js 配置檔案
+├── package-lock.json             # npm 依賴鎖定檔案
+├── package.json                  # 專案配置和依賴
+├── postcss.config.js             # PostCSS 配置
+├── postcss.config.mjs            # PostCSS 配置 (新版)
+├── README.md                     # 專案說明文件
+├── spec.txt                      # 專案規格說明
+├── tailwind.config.js            # Tailwind CSS 配置
+└── tsconfig.json                 # TypeScript 配置

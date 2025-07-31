@@ -1,15 +1,19 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@layer base {
+  :root {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +27,53 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 語言切換動畫效果 */
+.language-content {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.language-content[style*="display: none"] {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* 確保初始狀態隱藏非預設語言 */
+.language-content[data-lang="zh"] {
+  display: none;
+}
+
+/* 語言指示器 */
+.language-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(59, 130, 246, 0.9);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px; /* 修正這裡 */
+  font-size: 14px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+/* 語言切換樣式 - 預設顯示中文，隱藏英文 */
+.language-content[data-lang="en"] {
+  display: none;
+}
+
+.language-content[data-lang="zh"] {
+  display: block;
+}
+
+/* 當 HTML 有 lang="en" 屬性時，顯示英文，隱藏中文 */
+html[lang="en"] .language-content[data-lang="en"] {
+  display: block;
+}
+
+html[lang="en"] .language-content[data-lang="zh"] {
+  display: none;
 }

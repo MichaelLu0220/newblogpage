@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import ClientHomePage from '@/components/ClientHomePage';
 
-interface PostMeta {
-  title: string;
+export interface PostMeta {
+  title: string | { en: string; zh: string };
   date: string;
   description?: string;
   categories?: string;
@@ -12,7 +11,7 @@ interface PostMeta {
   slug: string;
 }
 
-function getAllPosts(): PostMeta[] {
+export function getAllPosts(): PostMeta[] {
   const postsDir = path.join(process.cwd(), 'posts');
   const files = fs.readdirSync(postsDir).filter(file => file.endsWith('.mdx'));
   return files.map(filename => {
@@ -28,10 +27,4 @@ function getAllPosts(): PostMeta[] {
       slug: filename.replace(/\.mdx$/, ''),
     };
   }).sort((a, b) => b.date.localeCompare(a.date));
-}
-
-export default function Home() {
-  const posts = getAllPosts();
-
-  return <ClientHomePage posts={posts} />;
 }
